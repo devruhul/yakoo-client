@@ -2583,10 +2583,6 @@ html {
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
 
-.to-purple-text {
-  --tw-gradient-to: #DF453F;
-}
-
 .fill-current {
   fill: currentColor;
 }

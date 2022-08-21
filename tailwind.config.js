@@ -10,7 +10,11 @@ module.exports = {
       'xs': { 'min': '320px', 'max': '425px' },
       ...defaultTheme.screens,
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        Poppins:["Poppins", "sans-serif"],
+      }
+    },
     colors: {
       "nav-purple": "#DF453F",
     },

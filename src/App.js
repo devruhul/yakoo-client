@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Login from './Authentication/Login/Login';
+import Register from './Authentication/Register/Register';
 import HomeNav from './components/HomeNav';
 import Bicycles from './pages/Home/Bicycles/Bicycles';
 import Contact from './pages/Home/Contact/Contact';
@@ -19,6 +21,8 @@ function App() {
         <Route path="bicycles" element={<Bicycles />} />
         <Route path="reviews" element={<Reviews />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />

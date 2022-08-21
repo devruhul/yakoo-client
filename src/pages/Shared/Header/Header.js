@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-300 purple-text">
+        <div className="navbar bg-base-300 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
                         <i className="fa-solid fa-bars-staggered"></i>
                     </label>
                     <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-100">
-                        <Link to="/"><li><a>Home</a></li></Link>
+                        <Link to="/"><li><a className='text-nav-purple'>Home</a></li></Link>
                         <Link to="bicycles"><li><a>Bicycles</a></li></Link>
                         {/* <Link to="/"><li><a>Dashboard</a></li></Link> */}
                         <Link to="reviews"><li><a>Reviews</a></li></Link>
@@ -30,7 +30,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="login"><a className="btn nav-text">Logout</a></Link>
+                <Link to="login"><a className=" btn">Logout</a></Link>
             </div>
         </div>
     );

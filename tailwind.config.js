@@ -12,7 +12,7 @@ module.exports = {
     },
     extend: {},
     colors: {
-      "purple-text": "#DF453F",
+      "nav-purple": "#DF453F",
     },
   },
   plugins: [require('daisyui')]

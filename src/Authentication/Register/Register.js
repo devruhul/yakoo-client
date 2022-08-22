@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import useFirebase from '../../Hooks/useFirebase';
 
 const Register = () => {
     const [createUserData, setCreateUserData] = useState({})
+    const { createWebUser } = useFirebase()
 
-
-    // eslint-disable-next-line no-unused-vars
     const location = useLocation()
     // const signUpUsingFacebook = () => {
     //     signInWithFacebook();
@@ -23,20 +23,13 @@ const Register = () => {
     }
 
     const signUpUsingEmail = (e) => {
-        e.preventDefault();
         // create user with firebase
-        // createParlourUser(createUserData.email, createUserData.password, createUserData.name, location)
-
-        // match password
-        if (createUserData.password !== createUserData.userConfirmPassword) {
-            alert('Password do not match')
-            return
-        }
-        else {
-            alert('Register Successfully')
-            e.target.reset()
-        }
+        createWebUser(createUserData.userEmail, createUserData.userPass, createUserData.userName)
+        alert('Register Successfully')
+        e.target.reset()
+        e.preventDefault();
     }
+    
     return (
         <div className="flex flex-col w-full mx-auto max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
             <div className="self-center mb-6 text-3xl font-bold text-gray-600 sm:text-2xl dark:text-white">
@@ -49,7 +42,7 @@ const Register = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-purple-color shadow-sm text-sm">
                                 <i className="fa-solid fa-id-card"></i>
                             </span>
-                            <input required type="text" name="name" onBlur={handleOnBlur} id="sign-up-name" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Name" />
+                            <input required type="text" name="userName" onBlur={handleOnBlur} id="sign-up-name" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Name" />
                         </div>
                     </div>
                     <div className="flex flex-col mb-4">
@@ -57,7 +50,7 @@ const Register = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-purple-color shadow-sm text-sm">
                                 <i className="fa-solid fa-envelope"></i>
                             </span>
-                            <input required type="email" name="email" onBlur={handleOnBlur} id="sign-up-email" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Email" />
+                            <input required type="email" name="userEmail" onBlur={handleOnBlur} id="sign-up-email" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Email" />
                         </div>
                     </div>
                     <div className="flex flex-col mb-4">
@@ -65,7 +58,7 @@ const Register = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-purple-color shadow-sm text-sm">
                                 <i className="fa-solid fa-lock"></i>
                             </span>
-                            <input required type="password" name="password" onBlur={handleOnBlur} id="sign-up-password" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Password" />
+                            <input required type="password" name="userPass" onBlur={handleOnBlur} id="sign-up-password" className="flex-1 appearance-none border border-pink-300 w-full py-3 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Password" />
                         </div>
                     </div>
                     <div className="flex w-full">

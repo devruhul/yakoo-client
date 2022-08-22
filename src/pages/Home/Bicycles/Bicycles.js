@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Bicycles = () => {
     return (
@@ -54,6 +55,7 @@ const Bicycles = () => {
                     </div>
                 </div>
             </div>
+            <Link to="explore" ><button class="btn btn-primary mt-20">Explore More Bicycles</button></Link>
         </div>
 
 

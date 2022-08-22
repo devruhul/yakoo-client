@@ -5,6 +5,7 @@ import Register from './Authentication/Register/Register';
 import HomeNav from './components/HomeNav';
 import Bicycles from './pages/Home/Bicycles/Bicycles';
 import Contact from './pages/Home/Contact/Contact';
+import Explore from './pages/Home/Explore/Explore';
 import Home from './pages/Home/Home';
 import NotFound from './pages/Home/NotFound/NotFound';
 import Reviews from './pages/Home/Reviews/Reviews';
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="bicycles" element={<Bicycles />} />
+        <Route path="explore" element={<Explore />} />
         <Route path="reviews" element={<Reviews />} />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />

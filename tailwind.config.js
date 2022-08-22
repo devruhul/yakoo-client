@@ -16,7 +16,7 @@ module.exports = {
       }
     },
     colors: {
-      "nav-purple": "#DF453F",
+      "purple-color": "#5119ea",
     },
   },
   plugins: [require('daisyui')]

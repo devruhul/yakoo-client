@@ -12,7 +12,7 @@ const NewsLetter = () => {
         <section class="bg-white dark:bg-gray-900 container">
             <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                 <div class="mx-auto max-w-screen-md sm:text-center">
-                    <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">Sign up to our newsletter</h2>
+                    <h3 className='text-4xl font-bold my-4 opacity-90'>Sign up to our<span className="text-purple-color opacity-90"> Newsletter</span></h3>
                     <p class="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">Stay up to date with new products, announcements and exclusive discounts, feel free to sign up with your email.</p>
                     <form onSubmit={handleNewsletter}>
                         <div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
@@ -21,7 +21,8 @@ const NewsLetter = () => {
                                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
-                                <input class="block p-3 pl-10 w-full text-md text-purple-color bg-gray-50 rounded-lg border-2 border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-700 focus:border-primary-700" placeholder="Enter your email" type="email" id="email" required="" />
+                                
+                                <input class="block p-3 pl-10 w-full text-md text-purple-color bg-gray-50 rounded-lg border-2 border-gray-300 sm:rounded-none sm:rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your email" type="email" id="email" required="" />
 
                             </div>
                             <div>

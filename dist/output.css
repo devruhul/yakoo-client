@@ -3291,6 +3291,14 @@ html{
   margin-top: 1.5rem;
 }
 
+.mr-2{
+  margin-right: 0.5rem;
+}
+
+.mt-8{
+  margin-top: 2rem;
+}
+
 .block{
   display: block;
 }
@@ -3883,6 +3891,11 @@ code {
   .sm\:text-lg{
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .sm\:text-sm{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 

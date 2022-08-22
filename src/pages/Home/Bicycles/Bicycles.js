@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Bicycles = () => {
     return (
-        <div className='mt-12'>
+        <div className='mt-12 container'>
             <h3 className='text-4xl font-bold my-1  opacity-90'>Discover <br /> our new<span className="text-purple-color opacity 90"> arrivals</span></h3>
-            <div class="grid grid-cols-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-4 container">
+            <div class="grid grid-cols-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 <div class="card w-50 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />

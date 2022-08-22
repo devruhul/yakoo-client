@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HomeNav = () => {
   return (
-    <header className="footer flex justify-between content-center p-4 bg-neutral text-neutral-content">
+    <header className="footer flex justify-between content-center p-4 bg-footer-bg text-black">
       <div className=" grid-flow-col flex flex-center">
         <i className="fa-solid fa-phone mt-1"></i>
         <a href="tel:+8801764896633"><span>01764896633</span></a>

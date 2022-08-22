@@ -33,7 +33,7 @@ const Contact = () => {
     return (
         <div className="bg-indigo-300">
             <form onSubmit={handleContact} className="flex w-full max-w-md space-y-3 mx-auto">
-                <div className="w-full  px-5 py-10 m-auto mb-10 mt-10 rounded-lg shadow-lg dark:bg-gray-800">
+                <div className="w-full  px-5 m-auto mb-10 mt-10 rounded-lg shadow-lg dark:bg-gray-800">
                     <h3 className='text-4xl font-bold mb-10 opacity-90'>Let us handle your project<span className="text-purple-color opacity-90"> Professionally</span></h3>
                     <div className="grid  grid-cols-2 gap-6 m-auto">
                         <div className="md:col-span-2 lg:col-span-1">
@@ -62,7 +62,7 @@ const Contact = () => {
                                 </textarea>
                             </label>
                         </div>
-                        <div className="col-span-2 text-center">
+                        <div className="col-span-2 text-center mb-8">
                             <button type='submit' class="btn btn-primary">Send Message</button>
                         </div>
                     </div>

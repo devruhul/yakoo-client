@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import useFirebase from '../../Hooks/useFirebase';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({})
+    const { signinWebuser } = useFirebase()
 
     // eslint-disable-next-line no-unused-vars
     const location = useLocation()
@@ -18,11 +20,11 @@ const Login = () => {
     }
     // handle login submit
     const handleloginSubmit = e => {
-        e.preventDefault()
         // sign in user with firebase
-        // signInParlourUser(loginData.email, loginData.password, location)
-        e.target.reset()
+        signinWebuser(loginData.userEmail, loginData.userPass, location)
         alert('Login Successfully')
+        e.target.reset()
+        e.preventDefault()
     }
 
     // handle google sign in
@@ -44,7 +46,7 @@ const Login = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-purple-color shadow-sm text-sm">
                                 <i className="fa-solid fa-envelope"></i>
                             </span>
-                            <input required type="email" name="email" id="sign-in-email" onBlur={handleOnChange} className="flex-1 appearance-none border border-purple-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-purple-color focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Email" />
+                            <input required type="email" name="userEmail" id="sign-in-email" onBlur={handleOnChange} className="flex-1 appearance-none border border-purple-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-purple-color focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Email" />
                         </div>
                     </div>
                     <div className="flex flex-col mb-6">
@@ -52,7 +54,7 @@ const Login = () => {
                             <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-purple-color shadow-sm text-sm">
                                 <i className="fa-solid fa-lock"></i>
                             </span>
-                            <input required type="password" name="password" onBlur={handleOnChange} id="sign-in-password" className=" flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Password" />
+                            <input required type="password" name="userPass" onBlur={handleOnChange} id="sign-in-password" className=" flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Password" />
                         </div>
                     </div>
                     <div className="flex w-full">

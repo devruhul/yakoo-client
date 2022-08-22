@@ -5,8 +5,8 @@ const Bicycles = () => {
     return (
         <div className='mt-10'>
             <h2 className='text-4xl font-Poppins opacity-75'>Discover <br /> our new arrivals</h2>
-            <div class="grid grid-cols-4 gap-1 container">
-                <div class="card w-96 bg-base-100 shadow-xl">
+            <div class="grid grid-cols-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-4 container">
+                <div class="card w-50 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
                     </figure>
@@ -18,7 +18,7 @@ const Bicycles = () => {
                         </div>
                     </div>
                 </div>
-                <div class="card w-96 bg-base-100 shadow-xl">
+                <div class="card w-50 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
                     </figure>
@@ -30,7 +30,7 @@ const Bicycles = () => {
                         </div>
                     </div>
                 </div>
-                <div class="card w-96 bg-base-100 shadow-xl">
+                <div class="card w-50 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
                     </figure>
@@ -42,7 +42,7 @@ const Bicycles = () => {
                         </div>
                     </div>
                 </div>
-                <div class="card w-96 bg-base-100 shadow-xl">
+                <div class="card w-50 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
                     </figure>

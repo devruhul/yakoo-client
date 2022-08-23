@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,29 @@ const useFirebase = () => {
 
     let navigate = useNavigate()
     const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
 
+
+    // Sign in with google
+    const signInWithGoogle = (location) => {
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                let destination = location?.state?.from || "/"
+                navigate(destination)
+                // The signed-in user info.
+                const user = result.user;
+                console.log(user);
+                // saveParlourUser(user.email, user.displayName, 'PUT')
+                setYokooUser(user);
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setError(errorCode, errorMessage);
+            });
+    }
+
+    // Sign Up user
     const createWebUser = (userEmail, userPass, userName) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, userEmail, userPass)
@@ -36,6 +58,7 @@ const useFirebase = () => {
             .finally(() => setLoading(false));
     }
 
+    // Sign In user
     const signinWebuser = (userEmail, userPass, location) => {
         setLoading(true);
         signInWithEmailAndPassword(auth, userEmail, userPass)
@@ -86,6 +109,7 @@ const useFirebase = () => {
     }
 
     return {
+        signInWithGoogle,
         createWebUser,
         yokooUser,
         signinWebuser,

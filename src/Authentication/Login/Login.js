@@ -4,7 +4,7 @@ import useFirebase from '../../Hooks/useFirebase';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({})
-    const { signinWebuser } = useFirebase()
+    const { signinWebuser, signInWithGoogle } = useFirebase()
 
     const location = useLocation()
     // handle login text and password field
@@ -28,7 +28,7 @@ const Login = () => {
 
     // handle google sign in
     const handleGoogleSignin = () => {
-        // signInWithGoogle(location)
+        signInWithGoogle(location)
     }
     return (
         <div className="flex flex-col w-full mx-auto max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">

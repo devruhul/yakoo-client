@@ -17,7 +17,7 @@ module.exports = {
     },
     colors: {
       "purple-color": "#5119ea",
-      "footer-bg":"rgb(196 181 253)"
+      "footer-bg": "rgb(196 181 253)"
     },
   },
   plugins: [require('daisyui')]

@@ -15,7 +15,7 @@ const Header = () => {
                     <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-100">
                         <Link to="/"><li><button className='btn btn-ghost normal-case text-xl'>Home</button></li></Link>
                         <Link to="bicycles"><li><button className='btn btn-ghost normal-case text-xl'>Bicycles</button></li></Link>
-                        {/* <Link to="/"><li><a>Dashboard</a></li></Link> */}
+                        <Link to="dashboard"><li><button className='btn btn-ghost normal-case text-base'>Dashboard</button></li></Link>
                         <Link to="reviews"><li><button className='btn btn-ghost normal-case text-xl'>Reviews</button></li></Link>
                         <Link to="contact"><li><button className='btn btn-ghost normal-case text-xl'>Contact</button></li></Link>
                     </ul>
@@ -23,16 +23,17 @@ const Header = () => {
                 <Link to="/" ><button className="btn btn-ghost normal-case text-xl">Yokoo</button></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
+                <ul className="menu menu-horizontal p-0 ">
                     <Link to="/"><li><button className='btn btn-ghost normal-case text-base'>Home</button></li></Link>
                     <Link to="bicycles"><li><button className='btn btn-ghost normal-case text-base'>Bicycles</button></li></Link>
+                    <Link to="dashboard"><li><button className='btn btn-ghost normal-case text-base'>Dashboard</button></li></Link>
                     <Link to="reviews"><li><button className='btn btn-ghost normal-case text-base'>Reviews</button></li></Link>
                     <Link to="contact"><li><button className='btn btn-ghost normal-case text-base'>Contact</button></li></Link>
                 </ul>
             </div>
             <div className="navbar-end">
                 <h2>{yokooUser?.displayName}</h2>
-              {yokooUser?.email &&  <button onClick={yokooUserlogout} className=" btn ml-5">Logout</button>}
+                {yokooUser?.email && <button onClick={yokooUserlogout} className=" btn ml-5">Logout</button>}
             </div>
         </div>
     );

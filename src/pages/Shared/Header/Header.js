@@ -20,7 +20,7 @@ const Header = () => {
                         <Link to="contact"><li><button className='btn btn-ghost normal-case text-xl'>Contact</button></li></Link>
                     </ul>
                 </div>
-                <Link to="/" ><a className="btn btn-ghost normal-case text-xl">Yokoo</a></Link>
+                <Link to="/" ><button className="btn btn-ghost normal-case text-xl">Yokoo</button></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -31,8 +31,8 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <h2>Hello, {yokooUser?.displayName}</h2>
-                <button onClick={yokooUserlogout} className=" btn">Logout</button>
+                <h2>{yokooUser?.displayName}</h2>
+              {yokooUser?.email &&  <button onClick={yokooUserlogout} className=" btn ml-5">Logout</button>}
             </div>
         </div>
     );

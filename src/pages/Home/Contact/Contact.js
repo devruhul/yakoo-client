@@ -63,7 +63,7 @@ const Contact = () => {
                             </label>
                         </div>
                         <div className="col-span-2 text-center mb-8">
-                            <button type='submit' class="btn btn-primary">Send Message</button>
+                            <button type='submit' className="btn btn-primary">Send Message</button>
                         </div>
                     </div>
                 </div>

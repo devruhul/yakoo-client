@@ -6,7 +6,6 @@ const Login = () => {
     const [loginData, setLoginData] = useState({})
     const { signinWebuser } = useFirebase()
 
-    // eslint-disable-next-line no-unused-vars
     const location = useLocation()
     // handle login text and password field
     const handleOnChange = e => {
@@ -37,7 +36,7 @@ const Login = () => {
                 Login To Your Account
             </div>
             <div className="flex gap-4 item-center">
-                <button onClick={handleGoogleSignin} class="btn btn-primary w-full"> <i className="fa-brands fa-google mr-2"></i>Google</button>
+                <button onClick={handleGoogleSignin} className="btn btn-primary w-full"> <i className="fa-brands fa-google mr-2"></i>Google</button>
             </div>
             <div className="mt-8">
                 <form autoComplete="off" onSubmit={handleloginSubmit}>

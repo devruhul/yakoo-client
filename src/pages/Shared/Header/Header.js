@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../../Hooks/useFirebase';
 
 const Header = () => {
+    const { yokooUser, yokooUserlogout } = useFirebase()
     return (
         <div className="navbar bg-base-100 ">
             <div className="navbar-start">
@@ -29,7 +31,8 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="login"><a className=" btn">Logout</a></Link>
+                <h2>Hello, {yokooUser?.displayName}</h2>
+                <button onClick={yokooUserlogout} className=" btn">Logout</button>
             </div>
         </div>
     );

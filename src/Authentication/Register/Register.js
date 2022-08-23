@@ -6,6 +6,7 @@ const Register = () => {
     const [createUserData, setCreateUserData] = useState({})
     const { createWebUser } = useFirebase()
 
+    // eslint-disable-next-line no-unused-vars
     const location = useLocation()
     // const signUpUsingFacebook = () => {
     //     signInWithFacebook();

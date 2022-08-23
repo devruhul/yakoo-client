@@ -55,7 +55,7 @@ const Bicycles = () => {
                     </div>
                 </div>
             </div>
-            <Link to="explore" ><button class="btn btn-primary mt-20">Explore More Bicycles</button></Link>
+            <Link to="explore" ><button class="btn btn-primary my-20">Explore More Bicycles</button></Link>
         </div>
 
 

@@ -14,6 +14,7 @@ const useFirebase = () => {
     const auth = getAuth();
 
     const createWebUser = (userEmail, userPass, userName) => {
+        setLoading(true);
         createUserWithEmailAndPassword(auth, userEmail, userPass)
             .then((userCredential) => {
                 const newUser = { email: userEmail, displayName: userName }
@@ -31,10 +32,12 @@ const useFirebase = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setError(errorCode, errorMessage)
-            });
+            })
+            .finally(() => setLoading(false));
     }
 
     const signinWebuser = (userEmail, userPass, location) => {
+        setLoading(true);
         signInWithEmailAndPassword(auth, userEmail, userPass)
             .then((userCredential) => {
                 let destination = location?.state?.from || "/"
@@ -44,11 +47,13 @@ const useFirebase = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setError(errorCode, errorMessage)
-            });
+            })
+            .finally(() => setLoading(false));
     }
 
     // set user  persist
     useEffect(() => {
+        setLoading(true);
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setYokooUser(user);
@@ -68,6 +73,7 @@ const useFirebase = () => {
 
     // user logout
     const yokooUserlogout = () => {
+        setLoading(true);
         signOut(auth)
             .then(() => {
                 setYokooUser({});
@@ -84,6 +90,7 @@ const useFirebase = () => {
         yokooUser,
         signinWebuser,
         yokooUserlogout,
+        loading,
         error
     }
 };

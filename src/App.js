@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Login from './Authentication/Login/Login';
+import PrivateRoute from './Authentication/PrivateRoute/PrivateRoute';
 import Register from './Authentication/Register/Register';
 import HomeNav from './components/HomeNav';
 import Bicycles from './pages/Home/Bicycles/Bicycles';
@@ -19,7 +20,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="bicycles" element={<Bicycles />} />
+        <Route path="bicycles" element={
+          <PrivateRoute>
+            <Bicycles />
+          </PrivateRoute>
+        } />
         <Route path="explore" element={<Explore />} />
         <Route path="reviews" element={<Reviews />} />
         <Route path="contact" element={<Contact />} />

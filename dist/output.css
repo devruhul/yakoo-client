@@ -2874,12 +2874,6 @@ html{
   border-bottom-left-radius: inherit;
 }
 
-.mockup-phone .display{
-  overflow: hidden;
-  border-radius: 40px;
-  margin-top: -25px;
-}
-
 @-webkit-keyframes progress-loading{
   50%{
     left: 107%;
@@ -3184,19 +3178,24 @@ html{
   margin-right: auto;
 }
 
+.my-6{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .my-1{
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
 
-.my-4{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .my-20{
   margin-top: 5rem;
   margin-bottom: 5rem;
+}
+
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mt-1{
@@ -3241,10 +3240,6 @@ html{
 
 .mt-12{
   margin-top: 3rem;
-}
-
-.mt-20{
-  margin-top: 5rem;
 }
 
 .mb-10{

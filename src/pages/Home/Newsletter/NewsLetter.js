@@ -17,7 +17,7 @@ const NewsLetter = () => {
                     <form onSubmit={handleNewsletter}>
                         <div className="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
                             <div className="relative w-full">
-                                <label for="email" className="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email address</label>
+                                <label htmlFor="email" className="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email address</label>
                                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                                     <i className="fa-solid fa-envelope"></i>
                                 </div>

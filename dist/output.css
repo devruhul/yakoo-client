@@ -3639,6 +3639,10 @@ body[dir="rtl"] .checkbox:checked,
   width: 1.25rem;
 }
 
+.w-60{
+  width: 15rem;
+}
+
 .max-w-md{
   max-width: 28rem;
 }

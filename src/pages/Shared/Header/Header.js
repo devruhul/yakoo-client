@@ -33,7 +33,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
                     <i className="fa-solid fa-bars-staggered"></i>
                 </label>
                 {yokooUser?.email && <button onClick={yokooUserlogout} className=" btn btn-primary ml-5">Logout</button>}

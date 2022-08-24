@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const AddBicycle = () => {
     const [bicycleAdd, setBicycleAdd] = useState({});
@@ -11,9 +12,15 @@ const AddBicycle = () => {
             ...bicycleAdd,
             [field]: value
         })
+        console.log(bicycleAdd);
     }
 
     const handleAddServices = (e) => {
+        axios.post('http://localhost:5000/bicycle', bicycleAdd)
+            .then(res => {
+                console.log(res.data)
+                setBicycleAdd(res.data)
+            })
         e.preventDefault();
         e.target.reset();
     }
@@ -25,7 +32,7 @@ const AddBicycle = () => {
                     Add New <span className='text-purple-color'>Bicycle </span>
                 </div>
                 <div className="grid  grid-cols-2 gap-6 mx-auto">
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2 ">
                         <div className=" relative ">
                             <input required name="bicycleName" onBlur={handleOnBlur} type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color  placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Bicycle Name" />
                         </div>
@@ -39,7 +46,7 @@ const AddBicycle = () => {
                     <div className="md:col-span-2 lg:col-span-2 col-span-2">
                         <input required name="imageLink" onBlur={handleOnBlur} className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color  placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="comment" placeholder="Bicycle image link" />
                     </div>
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <textarea required name="description" onBlur={handleOnBlur} type="text" id="contact-form-description" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color  placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Bicycle Description" rows="5" cols="40" />
                         </div>

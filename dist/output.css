@@ -3161,12 +3161,12 @@ html{
   grid-column: span 2 / span 2;
 }
 
-.m-2{
-  margin: 0.5rem;
-}
-
 .m-auto{
   margin: auto;
+}
+
+.m-2{
+  margin: 0.5rem;
 }
 
 .m-10{
@@ -3234,6 +3234,10 @@ html{
   margin-bottom: 1rem;
 }
 
+.mr-4{
+  margin-right: 1rem;
+}
+
 .mb-5{
   margin-bottom: 1.25rem;
 }
@@ -3276,10 +3280,6 @@ html{
 
 .ml-5{
   margin-left: 1.25rem;
-}
-
-.mr-4{
-  margin-right: 1rem;
 }
 
 .block{
@@ -3326,6 +3326,10 @@ html{
   max-width: 28rem;
 }
 
+.max-w-xl{
+  max-width: 36rem;
+}
+
 .max-w-screen-xl{
   max-width: 1280px;
 }
@@ -3340,10 +3344,6 @@ html{
 
 .max-w-screen-sm{
   max-width: 640px;
-}
-
-.max-w-xl{
-  max-width: 36rem;
 }
 
 .flex-1{
@@ -3375,12 +3375,12 @@ html{
   grid-auto-flow: column;
 }
 
-.grid-cols-4{
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-4{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .flex-col{
@@ -3411,12 +3411,12 @@ html{
   gap: 1rem;
 }
 
-.gap-8{
-  gap: 2rem;
-}
-
 .gap-6{
   gap: 1.5rem;
+}
+
+.gap-8{
+  gap: 2rem;
 }
 
 .gap-7{
@@ -3551,14 +3551,19 @@ html{
   padding-bottom: 0.75rem;
 }
 
-.px-10{
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
 .px-5{
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+
+.py-5{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.px-10{
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .py-24{
@@ -3574,11 +3579,6 @@ html{
 .py-10{
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
-}
-
-.py-5{
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }
 
 .pt-10{
@@ -3940,12 +3940,12 @@ code {
     overflow-x: auto;
   }
 
-  .lg\:col-span-1{
-    grid-column: span 1 / span 1;
-  }
-
   .lg\:col-span-2{
     grid-column: span 2 / span 2;
+  }
+
+  .lg\:col-span-1{
+    grid-column: span 1 / span 1;
   }
 
   .lg\:flex{

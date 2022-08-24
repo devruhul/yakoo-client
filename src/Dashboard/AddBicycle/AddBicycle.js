@@ -4,6 +4,7 @@ import axios from 'axios';
 const AddBicycle = () => {
     const [bicycleAdd, setBicycleAdd] = useState({});
 
+    // get input value
     const handleOnBlur = (e) => {
         const field = e.target.name
         const value = e.target.value
@@ -12,14 +13,15 @@ const AddBicycle = () => {
             ...bicycleAdd,
             [field]: value
         })
-        console.log(bicycleAdd);
     }
 
+    // send cycle to server
     const handleAddServices = (e) => {
         axios.post('http://localhost:5000/bicycle', bicycleAdd)
-            .then(res => {
-                console.log(res.data)
-                setBicycleAdd(res.data)
+            .then(result => {
+                if (result.data?.insertedId) {
+                    alert("Bicycle added successfully");
+                }
             })
         e.preventDefault();
         e.target.reset();

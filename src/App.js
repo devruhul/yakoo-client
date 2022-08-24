@@ -5,7 +5,10 @@ import PrivateRoute from './Authentication/PrivateRoute/PrivateRoute';
 import Register from './Authentication/Register/Register';
 import HomeNav from './components/HomeNav';
 import AddBicycle from './Dashboard/AddBicycle/AddBicycle';
+import BicycleReview from './Dashboard/BicycleReview/BicycleReview';
 import Dashboard from './Dashboard/Dashboard';
+import MyOrders from './Dashboard/MyOrders/MyOrders';
+import Payment from './Dashboard/Payment/Payment';
 import Bicycles from './pages/Home/Bicycles/Bicycles';
 import Contact from './pages/Home/Contact/Contact';
 import Explore from './pages/Home/Explore/Explore';
@@ -33,14 +36,15 @@ function App() {
           </PrivateRoute>
         }>
           <Route path="/dashboard/addBicycle" element={<AddBicycle />} />
-          {/* <Route path="/dashboard/bookingList" element={<BookingsLists />} /> */}
+          <Route path="/dashboard/payment" element={<Payment />} />
+          <Route path="/dashboard/myOrders" element={<MyOrders />} />
+          <Route path="/dashboard/bicycleReview" element={<BicycleReview />} />
           {/* <Route path="/dashboard/ordersList" element={
             <OrdersLists />
           } />
           <Route path="/dashboard/manageServices" element={
             <ManageServices />
           } />
-          <Route path="/dashboard/serviceReview" element={<ServiceReview />} />
           <Route path="/dashboard/makeAdmin" element={
             <MakeAdmin />
           } /> */}

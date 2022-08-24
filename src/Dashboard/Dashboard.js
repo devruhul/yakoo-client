@@ -25,6 +25,16 @@ const Dashboard = () => {
                             </NavText>
                         </NavItem>
                     </Link>
+                    {<Link to="/dashboard/payment">
+                        <NavItem>
+                            <NavIcon>
+                                <i className="fa-regular fa-credit-card" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
+                            </NavIcon>
+                            <NavText style={{ paddingBottom: '.7em', color: 'white' }}>
+                                Pay
+                            </NavText>
+                        </NavItem>
+                    </Link>}
                     {<Link to="/dashboard/addBicycle">
                         <NavItem>
                             <NavIcon>
@@ -55,13 +65,13 @@ const Dashboard = () => {
                             </NavText>
                         </NavItem>
                     </Link>}
-                    <Link to="/dashboard/bookingList">
+                    <Link to="/dashboard/myOrders">
                         <NavItem>
                             <NavIcon>
                                 <i className="fa-solid fa-list" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />
                             </NavIcon>
                             <NavText style={{ paddingBottom: '1em', color: 'white' }}>
-                                Bookings
+                                My Orders
                             </NavText>
                         </NavItem>
                     </Link>
@@ -75,7 +85,7 @@ const Dashboard = () => {
                             </NavText>
                         </NavItem>
                     </Link>}
-                    {!admin && <Link to="/dashboard/serviceReview">
+                    {!admin && <Link to="/dashboard/bicycleReview">
                         <NavItem>
                             <NavIcon>
                                 <i className="fa-regular fa-message" style={{ fontSize: '1.75em', color: 'black', paddingBottom: '.2em' }} />

@@ -12,12 +12,13 @@ const Header = () => {
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
                         <i className="fa-solid fa-bars-staggered"></i>
                     </label>
-                    <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-100">
+                    <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-100 bg-footer-bg">
                         <Link to="/"><li><button className='btn btn-ghost normal-case text-xl'>Home</button></li></Link>
                         <Link to="bicycles"><li><button className='btn btn-ghost normal-case text-xl'>Bicycles</button></li></Link>
-                        <Link to="dashboard"><li><button className='btn btn-ghost normal-case text-base'>Dashboard</button></li></Link>
+                        <Link to="dashboard"><li><button className='btn btn-ghost normal-case text-xl'>Dashboard</button></li></Link>
                         <Link to="reviews"><li><button className='btn btn-ghost normal-case text-xl'>Reviews</button></li></Link>
-                        <Link to="contact"><li><button className='btn btn-ghost normal-case text-xl'>Contact</button></li></Link>
+                        <Link to="contact"><li><button className='btn btn-ghost normal-case text-xl mb-2'>Contact</button></li></Link>
+                        {yokooUser?.email && <button onClick={yokooUserlogout} className=" btn btn-primary">Logout</button>}
                     </ul>
                 </div>
                 <Link to="/" ><button className="btn btn-ghost normal-case text-xl">Yokoo</button></Link>
@@ -32,8 +33,10 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <h2>{yokooUser?.displayName}</h2>
-                {yokooUser?.email && <button onClick={yokooUserlogout} className=" btn ml-5">Logout</button>}
+                <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <i className="fa-solid fa-bars-staggered"></i>
+                </label>
+                {yokooUser?.email && <button onClick={yokooUserlogout} className=" btn btn-primary ml-5">Logout</button>}
             </div>
         </div>
     );

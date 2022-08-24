@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 const AddBicycle = () => {
-    const [booking, setBooking] = useState({});
+    const [bicycleAdd, setBicycleAdd] = useState({});
 
     const handleOnBlur = (e) => {
         const field = e.target.name
         const value = e.target.value
 
-        setBooking({
-            ...booking,
+        setBicycleAdd({
+            ...bicycleAdd,
             [field]: value
         })
     }

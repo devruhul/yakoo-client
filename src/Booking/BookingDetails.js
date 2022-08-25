@@ -47,22 +47,8 @@ const BookingDetails = () => {
         })
     }
 
-    // get bicycle by id
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/bicycles/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setBooking(data)
-    //             console.log(data)
-    //         })
-    // }, [id])
-
-
-
-
     // Handle the booking form submit
     const handleBookingDetails = (e) => {
-
         setBookingInfo({
             ...bookingInfo
         })
@@ -70,9 +56,12 @@ const BookingDetails = () => {
         // send booking service data to server side
         axios.post('http://localhost:5000/booking', bookingInfo)
             .then(data => {
-                if (data.insertedId) {
-                    alert(`Booking ${data.data.bicycleName} Successfully`)
+                console.log(data)
+                if (data.data?.insertedId) {
+                    alert('Sent your booking to database Successfully!')
                     e.target.reset()
+                } else {
+                    alert('error!')
                 }
             })
         // Stop reloading the page

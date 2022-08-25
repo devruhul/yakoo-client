@@ -10,19 +10,20 @@ const Bicycles = () => {
     if (isLoading) {
         return <div>Loading...</div>;
     }
-
+    // error message query
     if (isError) {
-        return <div>Error! + `${isError}`</div>;
+        return <div>Error: {data.error}</div>;
     }
+
 
     return (
         <div className='mt-12 container'>
             <h3 className='text-4xl font-bold my-1  opacity-90'>Discover <br /> our new<span className="text-purple-color opacity 90"> arrivals</span></h3>
-            <div className="grid grid-cols-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-3 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
 
                 {
                     data?.map(bicycle => (
-                        <div key={bicycle._id} className="card w-50 bg-base-100 shadow-xl  hover:bg-footer-bg hover:scale-90 transition ease-in-out delay-150 bg-blue-500 hover:translate-y-1 hover:bg-indigo-500 duration-300">
+                        <div key={bicycle._id} className="card w-50 bg-base-100 shadow-xl  hover:bg-footer-bg hover:scale-90 hover:translate-y-1 duration-300">
                             <figure className="px-10 pt-10">
                                 <img src={bicycle?.imageLink} alt="Shoes" className="rounded-xl" />
                             </figure>

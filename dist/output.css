@@ -3575,6 +3575,14 @@ body[dir="rtl"] .checkbox:checked,
   margin-left: 1.25rem;
 }
 
+.ml-3{
+  margin-left: 0.75rem;
+}
+
+.mr-3{
+  margin-right: 0.75rem;
+}
+
 .block{
   display: block;
 }

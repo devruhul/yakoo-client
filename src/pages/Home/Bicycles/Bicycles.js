@@ -32,14 +32,15 @@ const Bicycles = () => {
                                 <p>{bicycle?.description}</p>
                                 <p>${bicycle?.price}</p>
                                 <div className="card-actions">
-                                    <button className="btn btn-primary">Buy Now</button>
+                                    <Link to={`/bookBicycle/${bicycle._id}`}>
+                                        <button className="btn btn-primary">Buy Now</button> </Link>
                                 </div>
                             </div>
                         </div>
                     ))
                 }
             </div>
-            <Link to="explore" ><button className="btn btn-primary my-20">Explore More Bicycles</button></Link>
+            <Link to="/explore" ><button className="btn btn-primary my-20">Explore More Bicycles</button></Link>
         </div>
 
 

@@ -56,7 +56,7 @@ const ManageBicycles = () => {
                                         <div>
                                             <img src={bicycle.imageLink} alt="" className=' w-50' />
                                         </div>
-                                        <div>
+                                        <div className='mr-3'>
                                             <button onClick={() => handleDeleteService(bicycle._id)} className="btn btn-primary ">Delete</button>
                                         </div>
                                     </div>

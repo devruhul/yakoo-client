@@ -23,6 +23,8 @@ import {
 } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import ManageBicycles from './Dashboard/ManageBicycles/ManageBicycles';
+import BookBicycle from './Booking/BookBicycle';
+import BookingDetails from './Booking/BookingDetails';
 
 function App() {
   const queryClient = new QueryClient()
@@ -39,6 +41,9 @@ function App() {
               <Bicycles />
             </PrivateRoute>
           } />
+          <Route path="bookBicycle" element={<BookBicycle />} >
+            <Route path=":id" element={<BookingDetails />} />
+          </Route>
           <Route path="dashboard" element={
             <PrivateRoute>
               <Dashboard />

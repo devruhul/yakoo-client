@@ -21,10 +21,11 @@ const AddBicycle = () => {
             .then(result => {
                 if (result.data?.insertedId) {
                     alert("Bicycle added successfully");
+                    setBicycleAdd(result.data);
+                    e.target.reset();
                 }
             })
         e.preventDefault();
-        e.target.reset();
     }
 
     return (

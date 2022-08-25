@@ -1,21 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
-import getBicycles from '../../components/getBicycles';
 import axios from 'axios';
 
 const ManageBicycles = () => {
     const [bicycles, setBicycles] = useState([]);
 
     // load all bicycles using react query
-    const { data, isLoading, isError } = useQuery(["bicycles"], getBicycles)
-
+    const { data, isLoading, isError, error } = useQuery(["bicycles"], async () => await axios.get('http://localhost:5000/bicycles'))
 
     if (isLoading) {
         return <div>Loading...</div>;
     }
     // error message query
     if (isError) {
-        return <div>Error: {data.message}</div>;
+        return <div>Error: {error.message}</div>;
     }
 
     // delete a service
@@ -49,7 +47,7 @@ const ManageBicycles = () => {
                 <div className="grid grid-cols-3 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
 
                     {
-                        data?.map(bicycle => (
+                        data?.data?.map(bicycle => (
                             <div key={bicycle._id} className="card w-50 bg-base-100 shadow-xl ">
                                 <div className="flex flex-wrap ">
                                     <div className="text-gray-600 flex justify-between">

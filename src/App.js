@@ -22,6 +22,7 @@ import {
   QueryClientProvider
 } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import ManageBicycles from './Dashboard/ManageBicycles/ManageBicycles';
 
 function App() {
   const queryClient = new QueryClient()
@@ -48,11 +49,11 @@ function App() {
             <Route path="/dashboard/addBicycle" element={<AddBicycle />} />
             <Route path="/dashboard/myOrders" element={<MyOrders />} />
             <Route path="/dashboard/bicycleReview" element={<BicycleReview />} />
+            <Route path="/dashboard/manageBicycles" element={
+              <ManageBicycles />
+            } />
             {/* <Route path="/dashboard/ordersList" element={
             <OrdersLists />
-          } />
-          <Route path="/dashboard/manageServices" element={
-            <ManageServices />
           } />
           <Route path="/dashboard/makeAdmin" element={
             <MakeAdmin />

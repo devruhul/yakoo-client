@@ -6,13 +6,17 @@ import useAuth from '../../Hooks/useAuth';
 const MyOrders = () => {
     const { yokooUser } = useAuth()
     // load all bookings using react query nad current user email
-    const {  isError, error, status,  data } = useQuery(
+    const { isError, error, status, data } = useQuery(
         ['myOrders', yokooUser.email], async () => await axios.get(`http://localhost:5000/booking/${yokooUser.email}`,
             {
                 // The query will not execute until the userId exists
                 enabled: !!yokooUser.email,
             }
         ))
+
+    if (data?.data?.length === 0) {
+        return <div className='text-3xl text-purple-color'>No orders</div>
+    }
 
     if (status === 'loading') {
         return <div>Loading...</div>;
@@ -23,12 +27,12 @@ const MyOrders = () => {
     }
     return (
         <div>
-              <div className="m-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
-                    My <span className='text-purple-color'>Orders </span>
-                </div>
+            <div className="m-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
+                My <span className='text-purple-color'>Orders </span>
+            </div>
             <div className="grid grid-cols-3 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                 {
-                    data?.data.map(order => (
+                    data?.data?.map(order => (
                         <div key={order._id} className="card w-50 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
                                 <img src={order?.bicycleImg} alt="Shoes" className="rounded-xl" />

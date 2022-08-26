@@ -25,6 +25,22 @@ const MyOrders = () => {
     if (isError) {
         return <div>Error: {error.message}</div>;
     }
+
+      // delete a service
+      const handleDeleteOrder = (_id) => {
+        const result = window.confirm('Are you sure to delete?');
+        if (result) {
+            axios.delete(`http://localhost:5000/booking/${_id}`)
+                .then(main => {
+                    if (main.data?.deletedCount > 0) {
+                        alert('Deleted Successfully!')
+                    } else {
+                        alert('Error!', main.data?.message)
+                    }
+                })
+        }
+    }
+
     return (
         <div>
             <div className="m-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
@@ -34,9 +50,16 @@ const MyOrders = () => {
                 {
                     data?.data?.map(order => (
                         <div key={order._id} className="card w-50 bg-base-100 shadow-xl">
-                            <figure className="px-10 pt-10">
-                                <img src={order?.bicycleImg} alt="Shoes" className="rounded-xl" />
-                            </figure>
+                            <div className="flex flex-wrap ">
+                                <div className="text-gray-600 flex justify-between">
+                                    <div>
+                                        <img src={order.bicycleImg} alt="" className=' w-50' />
+                                    </div>
+                                    <div className='mr-3'>
+                                        <button onClick={() => handleDeleteOrder(order._id)} className="btn btn-primary ">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title hover:text-purple-color cursor-pointer">{order?.bicycleTitle}</h2>
                                 <p>{order?.bicycleDescription}</p>

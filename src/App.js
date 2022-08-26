@@ -28,6 +28,7 @@ import BookingDetails from './Booking/BookingDetails';
 import ContextProvider from './Context/ContextProvider';
 import MakeAdmin from './Dashboard/MakeAdmin/MakeAdmin';
 import AdminRoute from './Authentication/AdminRoute/AdminRoute';
+import BookingLists from './Dashboard/BookingLists/BookingLists';
 
 function App() {
   const queryClient = new QueryClient()
@@ -76,9 +77,9 @@ function App() {
                   <MakeAdmin />
                 </AdminRoute>
               } />
-              {/* <Route path="/dashboard/ordersList" element={
-                <OrdersLists />
-              } /> */}
+              <Route path="/dashboard/bookingsLists" element={
+                <BookingLists />
+              } />
 
             </Route>
 

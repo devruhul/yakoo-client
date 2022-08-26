@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const Contact = () => {
@@ -16,14 +17,9 @@ const Contact = () => {
 
     const handleContact = (e) => {
         const newContact = { ...contact };
-        fetch('http://localhost:5000/contacts', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newContact)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
+        axios.post('http://localhost:5000/contact', newContact)
+            .then(result => {
+                if (result?.data?.insertedId) {
                     alert('Your message has been sent successfully');
                     e.target.reset()
                 }

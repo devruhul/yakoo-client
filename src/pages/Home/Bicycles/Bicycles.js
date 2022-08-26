@@ -15,14 +15,13 @@ const Bicycles = () => {
         return <div>Error: {error.message}</div>;
     }
 
-
     return (
         <div className='mt-12 container'>
             <h3 className='text-4xl font-bold my-1  opacity-90'>Discover <br /> our new<span className="text-purple-color opacity 90"> arrivals</span></h3>
             <div className="grid grid-cols-3 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
 
                 {
-                    data.data.map(bicycle => (
+                    data.data?.map(bicycle => (
                         <div key={bicycle._id} className="card w-50 bg-base-100 shadow-xl  hover:bg-footer-bg hover:scale-90 hover:translate-y-1 duration-300">
                             <figure className="px-10 pt-10">
                                 <img src={bicycle?.imageLink} alt="Shoes" className="rounded-xl" />

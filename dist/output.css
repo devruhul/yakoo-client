@@ -3466,6 +3466,10 @@ body[dir="rtl"] .checkbox:checked,
   margin: 0.5rem;
 }
 
+.m-12{
+  margin: 3rem;
+}
+
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -3489,6 +3493,11 @@ body[dir="rtl"] .checkbox:checked,
 .my-20{
   margin-top: 5rem;
   margin-bottom: 5rem;
+}
+
+.my-12{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .mt-10{

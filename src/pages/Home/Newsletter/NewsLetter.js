@@ -5,7 +5,6 @@ const NewsLetter = () => {
 
     const handleNewsletter = (e) => {
         e.preventDefault();
-        console.log('Newsletter');
     }
 
     return (

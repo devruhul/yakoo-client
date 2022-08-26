@@ -24,7 +24,7 @@ const useFirebase = () => {
                 // The signed-in user info.
                 const user = result.user;
                 console.log(user);
-                // saveParlourUser(user.email, user.displayName, 'PUT')
+                saveYokooUser(user.email, user.displayName, 'PUT')
                 setYokooUser(user);
             }).catch((error) => {
                 // Handle Errors here.
@@ -43,7 +43,7 @@ const useFirebase = () => {
                 setYokooUser(newUser);
                 navigate('/')
                 setError('')
-                // saveParlourUser(email, name, 'POST')
+                saveYokooUser(userEmail, userName, 'POST')
                 updateProfile(auth.currentUser, {
                     displayName: userName
                 }).then(() => {
@@ -106,6 +106,21 @@ const useFirebase = () => {
                 setError(errorMessage);
             })
             .finally(() => setLoading(false));
+    }
+
+    // save yokoo user
+    const saveYokooUser = (userEmail, userName, method) => {
+        const user = { userEmail, userName }
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+            })
     }
 
     return {

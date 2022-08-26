@@ -26,6 +26,8 @@ import ManageBicycles from './Dashboard/ManageBicycles/ManageBicycles';
 import BookBicycle from './Booking/BookBicycle';
 import BookingDetails from './Booking/BookingDetails';
 import ContextProvider from './Context/ContextProvider';
+import MakeAdmin from './Dashboard/MakeAdmin/MakeAdmin';
+import AdminRoute from './Authentication/AdminRoute/AdminRoute';
 
 function App() {
   const queryClient = new QueryClient()
@@ -46,6 +48,10 @@ function App() {
             <Route path="bookBicycle" element={<BookBicycle />} >
               <Route path=":id" element={<BookingDetails />} />
             </Route>
+            <Route path="explore" element={<Explore />} />
+            <Route path="exploreBicycles" element={<BookBicycle />} >
+              <Route path=":id" element={<BookingDetails />} />
+            </Route>
             <Route path="dashboard" element={
               <PrivateRoute>
                 <Dashboard />
@@ -53,21 +59,29 @@ function App() {
             }>
               <Route index element={<AddBicycle />} />
               <Route path="/dashboard/payment" element={<Payment />} />
-              <Route path="/dashboard/addBicycle" element={<AddBicycle />} />
               <Route path="/dashboard/myOrders" element={<MyOrders />} />
               <Route path="/dashboard/bicycleReview" element={<BicycleReview />} />
+              <Route path="/dashboard/addBicycle" element={
+                <AdminRoute>
+                  <AddBicycle />
+                </AdminRoute>
+              } />
               <Route path="/dashboard/manageBicycles" element={
-                <ManageBicycles />
+                <AdminRoute>
+                  <ManageBicycles />
+                </AdminRoute>
+              } />
+              <Route path="/dashboard/makeAdmin" element={
+                <AdminRoute>
+                  <MakeAdmin />
+                </AdminRoute>
               } />
               {/* <Route path="/dashboard/ordersList" element={
-            <OrdersLists />
-          } />
-          <Route path="/dashboard/makeAdmin" element={
-            <MakeAdmin />
-          } /> */}
+                <OrdersLists />
+              } /> */}
 
             </Route>
-            <Route path="explore" element={<Explore />} />
+
             <Route path="reviews" element={<Reviews />} />
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />

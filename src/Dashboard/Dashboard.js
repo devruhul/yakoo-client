@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-// import useFirebase from '../Hooks/useFirebase';
+import useAuth from '../Hooks/useAuth';
 
 const Dashboard = () => {
-    // let { admin } = useAuth();
+    let { admin } = useAuth();
     return (
         <div className="drawer drawer-mobile">
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
@@ -16,8 +16,9 @@ const Dashboard = () => {
                 <ul className="menu p-4 inline-flex w-60 bg-footer-bg ">
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to='/dashboard/payment'>Pay</Link></li>
-                    <li><Link to='/dashboard/addBicycle'>Add Bicycle</Link></li>
-                    <li><Link to='/dashboard/manageBicycles'>Manage Bicycles</Link></li>
+                    {admin && <li><Link to='/dashboard/addBicycle'>Add Bicycle</Link></li>}
+                    {admin && <li><Link to='/dashboard/manageBicycles'>Manage Bicycles</Link></li>}
+                    {admin && <li><Link to='/dashboard/makeAdmin'>Make Admin</Link></li>}
                     <li><Link to='/dashboard/myOrders'>My Orders</Link></li>
                     <li><Link to='/dashboard/bicycleReview'>Review</Link></li>
                 </ul>

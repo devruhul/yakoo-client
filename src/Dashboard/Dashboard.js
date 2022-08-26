@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 // import useFirebase from '../Hooks/useFirebase';
 
 const Dashboard = () => {
-    // let { admin } = useFirebase();
+    // let { admin } = useAuth();
     return (
         <div className="drawer drawer-mobile">
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />

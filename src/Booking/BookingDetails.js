@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import useAuth from '../Hooks/useAuth';
 import { useBicycleData } from '../Hooks/useBicycleData';
-import useFirebase from '../Hooks/useFirebase';
 import './BookingDetails.css'
 
 const BookingDetails = () => {
     const { id } = useParams()
-    const { yokooUser } = useFirebase()
+    const { yokooUser } = useAuth()
     const initialBookingInfo = {
         yokooUserName: yokooUser?.displayName,
         email: yokooUser?.email,

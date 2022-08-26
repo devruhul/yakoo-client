@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../../Hooks/useFirebase';
+import useAuth from '../../../Hooks/useAuth';
 
 const Header = () => {
-    const { yokooUser, yokooUserlogout } = useFirebase()
+    const { yokooUser, yokooUserlogout } = useAuth()
     return (
         <div className="navbar bg-base-100 ">
             <div className="navbar-start">

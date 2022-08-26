@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import useFirebase from '../../Hooks/useFirebase';
+import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
     const [createUserData, setCreateUserData] = useState({})
-    const { createWebUser } = useFirebase()
+    const { createWebUser } = useAuth()
 
     // eslint-disable-next-line no-unused-vars
     const location = useLocation()

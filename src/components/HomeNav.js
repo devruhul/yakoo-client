@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useFirebase from '../Hooks/useFirebase';
+import useAuth from '../Hooks/useAuth';
 
 const HomeNav = () => {
-  const { yokooUser } = useFirebase()
+  const { yokooUser } = useAuth()
   return (
     <header className="footer flex justify-between content-center p-4 bg-footer-bg text-black">
       <div className=" grid-flow-col flex flex-center">

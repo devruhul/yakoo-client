@@ -25,57 +25,60 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import ManageBicycles from './Dashboard/ManageBicycles/ManageBicycles';
 import BookBicycle from './Booking/BookBicycle';
 import BookingDetails from './Booking/BookingDetails';
+import ContextProvider from './Context/ContextProvider';
 
 function App() {
   const queryClient = new QueryClient()
 
   return (
     <div className="App">
-      <QueryClientProvider client={queryClient}>
-        <HomeNav />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="bicycles" element={
-            <PrivateRoute>
-              <Bicycles />
-            </PrivateRoute>
-          } />
-          <Route path="bookBicycle" element={<BookBicycle />} >
-            <Route path=":id" element={<BookingDetails />} />
-          </Route>
-          <Route path="dashboard" element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }>
-            <Route index element={<AddBicycle />} />
-            <Route path="/dashboard/payment" element={<Payment />} />
-            <Route path="/dashboard/addBicycle" element={<AddBicycle />} />
-            <Route path="/dashboard/myOrders" element={<MyOrders />} />
-            <Route path="/dashboard/bicycleReview" element={<BicycleReview />} />
-            <Route path="/dashboard/manageBicycles" element={
-              <ManageBicycles />
+      <ContextProvider>
+        <QueryClientProvider client={queryClient}>
+          <HomeNav />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="bicycles" element={
+              <PrivateRoute>
+                <Bicycles />
+              </PrivateRoute>
             } />
-            {/* <Route path="/dashboard/ordersList" element={
+            <Route path="bookBicycle" element={<BookBicycle />} >
+              <Route path=":id" element={<BookingDetails />} />
+            </Route>
+            <Route path="dashboard" element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }>
+              <Route index element={<AddBicycle />} />
+              <Route path="/dashboard/payment" element={<Payment />} />
+              <Route path="/dashboard/addBicycle" element={<AddBicycle />} />
+              <Route path="/dashboard/myOrders" element={<MyOrders />} />
+              <Route path="/dashboard/bicycleReview" element={<BicycleReview />} />
+              <Route path="/dashboard/manageBicycles" element={
+                <ManageBicycles />
+              } />
+              {/* <Route path="/dashboard/ordersList" element={
             <OrdersLists />
           } />
           <Route path="/dashboard/makeAdmin" element={
             <MakeAdmin />
           } /> */}
 
-          </Route>
-          <Route path="explore" element={<Explore />} />
-          <Route path="reviews" element={<Reviews />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-        <ReactQueryDevtools initialIsOpen={true} />
+            </Route>
+            <Route path="explore" element={<Explore />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+          <ReactQueryDevtools initialIsOpen={true} />
 
-      </QueryClientProvider>
+        </QueryClientProvider>
+      </ContextProvider>
 
     </div>
   );

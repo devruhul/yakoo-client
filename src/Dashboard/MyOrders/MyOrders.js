@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react';
-import useFirebase from '../../Hooks/useFirebase';
+import useAuth from '../../Hooks/useAuth';
 
 const MyOrders = () => {
-    const { yokooUser } = useFirebase()
+    const { yokooUser } = useAuth()
     // load all bookings using react query nad current user email
     const {  isError, error, status,  data } = useQuery(
         ['myOrders', yokooUser.email], async () => await axios.get(`http://localhost:5000/booking/${yokooUser.email}`,

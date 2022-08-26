@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import slider1 from '../../../assets/images/slide-1.png';
-import useFirebase from '../../../Hooks/useFirebase';
+import useAuth from '../../../Hooks/useAuth';
 
 const Banner = () => {
-    const { yokooUser } = useFirebase()
+    const { yokooUser } = useAuth()
     return (
         <div>
             <div className="hero min-h-screen" style={{

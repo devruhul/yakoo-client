@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import useFirebase from '../../Hooks/useFirebase';
+import useAuth from '../../Hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({})
-    const { signinWebuser, signInWithGoogle } = useFirebase()
+    const { signinWebuser, signInWithGoogle } = useAuth()
 
     const location = useLocation()
     // handle login text and password field

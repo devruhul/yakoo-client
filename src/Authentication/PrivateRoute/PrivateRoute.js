@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import useFirebase from '../../Hooks/useFirebase';
+import useAuth from '../../Hooks/useAuth';
 
 const PrivateRoute = ({ children }) => {
-    const { loading, yokooUser } = useFirebase()
+    const { loading, yokooUser } = useAuth()
 
     let location = useLocation();
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, signInWithPopup, GoogleAuthProvider, getIdToken } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,8 @@ const useFirebase = () => {
     const [yokooUser, setYokooUser] = useState({})
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(true)
+    const [authToken, setAuthToken] = useState(null)
+    const [admin, setAdmin] = useState(false)
 
     let navigate = useNavigate()
     const auth = getAuth();
@@ -23,7 +25,6 @@ const useFirebase = () => {
                 navigate(destination)
                 // The signed-in user info.
                 const user = result.user;
-                console.log(user);
                 saveYokooUser(user.email, user.displayName, 'PUT')
                 setYokooUser(user);
             }).catch((error) => {
@@ -80,10 +81,10 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setYokooUser(user);
-                // getIdToken(user)
-                //     .then((idToken) => {
-                //         setAuthToken(idToken)
-                //     })
+                getIdToken(user)
+                    .then((idToken) => {
+                        setAuthToken(idToken)
+                    })
             } else {
                 setYokooUser({});
             }
@@ -93,6 +94,15 @@ const useFirebase = () => {
         return () => unsubscribed
 
     }, [auth]);
+
+    // set current user  admin
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${yokooUser?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setAdmin(data.admin)
+            })
+    }, [yokooUser.email])
 
     // user logout
     const yokooUserlogout = () => {
@@ -129,6 +139,8 @@ const useFirebase = () => {
         yokooUser,
         signinWebuser,
         yokooUserlogout,
+        authToken,
+        admin,
         loading,
         error
     }

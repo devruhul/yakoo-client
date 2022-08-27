@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 const BookingLists = () => {
     const [changeStatus, setChangeStatus] = useState("");
 
-    const { data, isLoading, isError, error } = useQuery(["bookingsLists"], async () => await axios.get('http://localhost:5000/allBookings'))
+    const { data, isLoading, isError, error } = useQuery(["bookingsLists"], async () => await axios.get('https://yokoo-server.vercel.app/allBookings'))
 
     // if data is loading
     if (isLoading) {
@@ -32,7 +32,7 @@ const BookingLists = () => {
             orderStatus: changeStatus
         }
 
-        axios.put(`http://localhost:5000/bookings/${_id}`, updateStatus)
+        axios.put(`https://yokoo-server.vercel.app/bookings/${_id}`, updateStatus)
             .then(main => {
                 if (main.data?.modifiedCount > 0) {
                     alert('Status updated successfully');
@@ -48,7 +48,7 @@ const BookingLists = () => {
     const handleOrderDelete = (_id) => {
         const result = window.confirm('Are you sure to delete?');
         if (result) {
-            axios.delete(`http://localhost:5000/booking/${_id}`)
+            axios.delete(`https://yokoo-server.vercel.app/booking/${_id}`)
                 .then(order => {
                     if (order.data?.deletedCount) {
                         alert('Deleted Successfully!')

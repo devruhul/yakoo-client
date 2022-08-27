@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Reviews = () => {
 
-    const { data, isLoading, isError, error } = useQuery(["reviews"], async () => await axios.get('http://localhost:5000/allReviews'))
+    const { data, isLoading, isError, error } = useQuery(["reviews"], async () => await axios.get('https://yokoo-server.vercel.app/allReviews'))
 
     // if data is loading
     if (isLoading) {

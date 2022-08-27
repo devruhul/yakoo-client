@@ -17,7 +17,7 @@ const AddBicycle = () => {
 
     // send cycle to server
     const handleAddServices = (e) => {
-        axios.post('http://localhost:5000/bicycle', bicycleAdd)
+        axios.post('https://yokoo-server.vercel.app/bicycle', bicycleAdd)
             .then(result => {
                 if (result.data?.insertedId) {
                     alert("Bicycle added successfully");

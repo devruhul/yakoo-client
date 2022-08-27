@@ -7,7 +7,7 @@ const MyOrders = () => {
     const { yokooUser } = useAuth()
     // load all bookings using react query nad current user email
     const { isError, error, status, data } = useQuery(
-        ['myOrders', yokooUser.email], async () => await axios.get(`http://localhost:5000/booking/${yokooUser.email}`,
+        ['myOrders', yokooUser.email], async () => await axios.get(`https://yokoo-server.vercel.app/booking/${yokooUser.email}`,
             {
                 // The query will not execute until the userId exists
                 enabled: !!yokooUser.email,
@@ -32,7 +32,7 @@ const MyOrders = () => {
       const handleDeleteOrder = (_id) => {
         const result = window.confirm('Are you sure to delete?');
         if (result) {
-            axios.delete(`http://localhost:5000/booking/${_id}`)
+            axios.delete(`https://yokoo-server.vercel.app/booking/${_id}`)
                 .then(main => {
                     if (main.data?.deletedCount > 0) {
                         alert('Deleted Successfully!')

@@ -6,7 +6,7 @@ const ManageBicycles = () => {
 
     // load all bicycles using react query
     const { data, isLoading, isError, error } = useQuery(["manageBicycles"],
-        async () => await axios.get('http://localhost:5000/allBicycles'))
+        async () => await axios.get('https://yokoo-server.vercel.app/allBicycles'))
     
     // if data is loading
     if (isLoading) {
@@ -21,7 +21,7 @@ const ManageBicycles = () => {
     const handleDeleteService = (_id) => {
         const result = window.confirm('Are you sure to delete?');
         if (result) {
-            axios.delete(`http://localhost:5000/bicycles/${_id}`)
+            axios.delete(`https://yokoo-server.vercel.app/bicycles/${_id}`)
                 .then(main => {
                     if (main.data?.deletedCount > 0) {
                         alert('Deleted Successfully!')

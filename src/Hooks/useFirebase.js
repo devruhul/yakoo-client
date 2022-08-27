@@ -98,7 +98,7 @@ const useFirebase = () => {
 
     // set current user  admin
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${yokooUser?.email}`)
+        fetch(`https://yokoo-server.vercel.app/users/${yokooUser?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)
@@ -122,7 +122,7 @@ const useFirebase = () => {
     // save yokoo user
     const saveYokooUser = (email, displayName, method) => {
         const user = { email, displayName }
-        fetch('http://localhost:5000/users', {
+        fetch('https://yokoo-server.vercel.app/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

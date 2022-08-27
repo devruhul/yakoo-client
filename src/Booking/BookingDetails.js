@@ -49,7 +49,7 @@ const BookingDetails = () => {
         })
 
         // Send booking bicycle data to server side
-        axios.post('http://localhost:5000/booking', bookingInfo)
+        axios.post('https://yokoo-server.vercel.app/booking', bookingInfo)
             .then(data => {
                 console.log(data)
                 if (data.data?.insertedId) {

@@ -4,7 +4,7 @@ import axios from 'axios'
 // fetch bicycle data by id
 const fetchBicycle = ({ queryKey }) => {
     const id = queryKey[1]
-    return axios.get(`http://localhost:5000/bicycles/${id}`)
+    return axios.get(`https://yokoo-server.vercel.app/bicycles/${id}`)
 }
 
 export const useBicycleData = id => {

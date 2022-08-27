@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Bicycles = () => {
 
-    const { data, isLoading, isError, error } = useQuery(["bicycles"], async () => await axios.get('http://localhost:5000/bicycles'))
+    const { data, isLoading, isError, error } = useQuery(["bicycles"], async () => await axios.get('https://yokoo-server.vercel.app/bicycles'))
 
     // loading until the data is loaded
     if (isLoading) {

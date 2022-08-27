@@ -14,7 +14,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin = (e) => {
         e.preventDefault();
         const user = { email };
-        fetch('http://localhost:5000/users/makeAdmin', {
+        fetch('https://yokoo-server.vercel.app/users/makeAdmin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${authToken}`,

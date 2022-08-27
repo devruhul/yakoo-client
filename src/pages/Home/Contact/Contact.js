@@ -19,7 +19,7 @@ const Contact = () => {
     // handle submit of the contact form
     const handleContact = (e) => {
         const newContact = { ...contact };
-        axios.post('http://localhost:5000/contact', newContact)
+        axios.post('https://yokoo-server.vercel.app/contact', newContact)
             .then(result => {
                 if (result?.data?.insertedId) {
                     alert('Your message has been sent successfully');

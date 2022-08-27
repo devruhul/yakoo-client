@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Explore = () => {
 
-    const { data, isLoading, isError, error } = useQuery(["allBicycles"], async () => await axios.get('http://localhost:5000/allBicycles'))
+    const { data, isLoading, isError, error } = useQuery(["allBicycles"], async () => await axios.get('https://yokoo-server.vercel.app/allBicycles'))
 
     // if data is loading
     if (isLoading) {

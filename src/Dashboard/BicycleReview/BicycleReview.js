@@ -57,7 +57,7 @@ const BicycleReview = () => {
         }
 
         // Send review data to server side using axios
-        axios.post('http://localhost:5000/review', reviewInfo)
+        axios.post('https://yokoo-server.vercel.app/review', reviewInfo)
             .then(result => {
                 if (result.data?.insertedId) {
                     alert('Review Successfully')

@@ -8,6 +8,7 @@ import Statictics from './Statistics/Statictics';
 
 const Home = () => {
     return (
+        // Show all the home components here
         <div>
             <Banner />
             <Bicycles />

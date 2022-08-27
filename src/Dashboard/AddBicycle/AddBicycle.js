@@ -29,6 +29,7 @@ const AddBicycle = () => {
     }
 
     return (
+        // Add bicycle form
         <form onSubmit={handleAddServices} className="flex w-full max-w-xl  space-y-3 mx-auto">
             <div className="w-full  px-5 py-5 m-auto bg-white rounded-lg shadow dark:bg-gray-800">
                 <div className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
@@ -40,7 +41,6 @@ const AddBicycle = () => {
                             <input required name="bicycleName" onBlur={handleOnBlur} type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color  placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Bicycle Name" />
                         </div>
                     </div>
-
                     <div className="col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <input required name="price" onBlur={handleOnBlur} type="number" id="contact-form-price" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color  placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Bicycle Price" />

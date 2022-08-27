@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 
+// fetch bicycle data by id
 const fetchBicycle = ({ queryKey }) => {
     const id = queryKey[1]
     return axios.get(`http://localhost:5000/bicycles/${id}`)

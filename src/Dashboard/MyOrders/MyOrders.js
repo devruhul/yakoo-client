@@ -14,10 +14,12 @@ const MyOrders = () => {
             }
         ))
 
+    // if there is no data about the order
     if (data?.data?.length === 0) {
         return <div className='text-3xl text-purple-color'>No orders</div>
     }
 
+    // if status is loading
     if (status === 'loading') {
         return <div>Loading...</div>;
     }
@@ -42,6 +44,7 @@ const MyOrders = () => {
     }
 
     return (
+        // My Orders page
         <div>
             <div className="m-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
                 My <span className='text-purple-color'>Orders </span>

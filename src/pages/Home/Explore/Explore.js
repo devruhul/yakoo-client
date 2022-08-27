@@ -17,10 +17,12 @@ const Explore = () => {
     }
 
     return (
+        // Explore all bicycles
         <div className='my-12 container'>
         <h3 className='text-4xl font-bold my-1  opacity-90'>Explore our all new<span className="text-purple-color opacity 90"> Bicycles</span></h3>
         <div className="grid grid-cols-3 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
 
+                {/* Map all bicycles to show all bicycles */}
             {
                 data.data?.map(bicycle => (
                     <div key={bicycle._id} className="card w-50 bg-base-100 shadow-xl  hover:bg-footer-bg hover:scale-90 hover:translate-y-1 duration-300">

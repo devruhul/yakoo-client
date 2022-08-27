@@ -36,17 +36,17 @@ const useFirebase = () => {
     }
 
     // Sign Up user
-    const createWebUser = (userEmail, userPass, userName) => {
+    const createWebUser = (email, password, name) => {
         setLoading(true);
-        createUserWithEmailAndPassword(auth, userEmail, userPass)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const newUser = { email: userEmail, displayName: userName }
+                const newUser = { email, displayName: name }
                 setYokooUser(newUser);
                 navigate('/')
                 setError('')
-                saveYokooUser(userEmail, userName, 'POST')
+                saveYokooUser(email, name, 'POST')
                 updateProfile(auth.currentUser, {
-                    displayName: userName
+                    displayName: name
                 }).then(() => {
                 }).catch((error) => {
                 });
@@ -60,12 +60,13 @@ const useFirebase = () => {
     }
 
     // Sign In user
-    const signinWebuser = (userEmail, userPass, location) => {
+    const signinWebuser = (email, password, location) => {
         setLoading(true);
-        signInWithEmailAndPassword(auth, userEmail, userPass)
+        signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 let destination = location?.state?.from || "/"
                 navigate(destination);
+                setError('')
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -119,8 +120,8 @@ const useFirebase = () => {
     }
 
     // save yokoo user
-    const saveYokooUser = (userEmail, userName, method) => {
-        const user = { userEmail, userName }
+    const saveYokooUser = (email, displayName, method) => {
+        const user = { email, displayName }
         fetch('http://localhost:5000/users', {
             method: method,
             headers: {

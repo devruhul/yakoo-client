@@ -5,6 +5,7 @@ const Contact = () => {
 
     const [contact, setContact] = useState({})
 
+    // handle input on change
     const handleOnChange = (e) => {
         const nameInputField = e.target.name
         const valueInputField = e.target.value
@@ -15,6 +16,7 @@ const Contact = () => {
         })
     }
 
+    // handle submit of the contact form
     const handleContact = (e) => {
         const newContact = { ...contact };
         axios.post('http://localhost:5000/contact', newContact)
@@ -24,9 +26,11 @@ const Contact = () => {
                     e.target.reset()
                 }
             })
+        // stop reloding the page
         e.preventDefault();
     }
     return (
+        // Contact page        
         <div className="bg-indigo-300">
             <form onSubmit={handleContact} className="flex w-full max-w-md space-y-3 mx-auto">
                 <div className="w-full  px-5 m-auto mb-10 mt-10 rounded-lg shadow-lg dark:bg-gray-800">
@@ -42,12 +46,12 @@ const Contact = () => {
                                 <input required type="text" onChange={handleOnChange} id="contact-form-name" name='lastName' className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-purple-color focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Last Name" />
                             </div>
                         </div>
-                        <div className="md:col-span-2 lg:col-span-2">
+                        <div className="col-span-2 lg:col-span-2">
                             <div className=" relative ">
                                 <input required type="email" onChange={handleOnChange} id="contact-form-name" name='email' className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-purple-color focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Email Address" />
                             </div>
                         </div>
-                        <div className="md:col-span-2 lg:col-span-2">
+                        <div className="col-span-2 lg:col-span-2">
                             <div className=" relative ">
                                 <input required type="number" onChange={handleOnChange} id="contact-form-number" name='phoneNumber' className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-purple-color focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your Number" />
                             </div>
@@ -64,7 +68,7 @@ const Contact = () => {
                     </div>
                 </div>
             </form>
-        </div>
+        </div >
     );
 };
 

@@ -21,7 +21,6 @@ import {
   QueryClient,
   QueryClientProvider
 } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import ManageBicycles from './Dashboard/ManageBicycles/ManageBicycles';
 import BookBicycle from './Booking/BookBicycle';
 import BookingDetails from './Booking/BookingDetails';
@@ -58,7 +57,7 @@ function App() {
                 <Dashboard />
               </PrivateRoute>
             }>
-              <Route index element={<AddBicycle />} />
+              <Route index element={<Payment />} />
               <Route path="/dashboard/payment" element={<Payment />} />
               <Route path="/dashboard/myOrders" element={<MyOrders />} />
               <Route path="/dashboard/bicycleReview" element={<BicycleReview />} />
@@ -80,9 +79,7 @@ function App() {
               <Route path="/dashboard/bookingsLists" element={
                 <BookingLists />
               } />
-
             </Route>
-
             <Route path="reviews" element={<Reviews />} />
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
@@ -90,8 +87,6 @@ function App() {
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
-          <ReactQueryDevtools initialIsOpen={true} />
-
         </QueryClientProvider>
       </ContextProvider>
 

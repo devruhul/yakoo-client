@@ -5,8 +5,10 @@ import axios from 'axios';
 const ManageBicycles = () => {
 
     // load all bicycles using react query
-    const { data, isLoading, isError, error } = useQuery(["manageBicycles"], async () => await axios.get('http://localhost:5000/allBicycles'))
-
+    const { data, isLoading, isError, error } = useQuery(["manageBicycles"],
+        async () => await axios.get('http://localhost:5000/allBicycles'))
+    
+    // if data is loading
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -31,6 +33,7 @@ const ManageBicycles = () => {
     }
 
     return (
+        // Manage Bicycles page
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-5 mx-auto">
                 <div className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">All
@@ -38,7 +41,6 @@ const ManageBicycles = () => {
                     List
                 </div>
                 <div className="grid grid-cols-3 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
-
                     {
                         data?.data?.map(bicycle => (
                             <div key={bicycle._id} className="card w-50 bg-base-100 shadow-xl ">

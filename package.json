@@ -1,6 +1,8 @@
 {
   "name": "yokoo-client",
   "version": "0.1.0",
+  "author": "Ruhul Amin",
+  "description": "A simple client for yokoo",
   "private": true,
   "dependencies": {
     "@tanstack/react-query": "^4.2.1",

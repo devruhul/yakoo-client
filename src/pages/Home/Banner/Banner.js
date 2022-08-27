@@ -6,6 +6,7 @@ import useAuth from '../../../Hooks/useAuth';
 const Banner = () => {
     const { yokooUser } = useAuth()
     return (
+        // Banner page
         <div>
             <div className="hero min-h-screen" style={{
                 backgroundImage: `url(${slider1})`

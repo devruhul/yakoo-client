@@ -5,8 +5,10 @@ import useAuth from '../../Hooks/useAuth';
 const PrivateRoute = ({ children }) => {
     const { loading, yokooUser } = useAuth()
 
+    // Get the current location
     let location = useLocation();
 
+    // Wait until the user is loaded before rendering the route
     if (loading) {
         return (
             <div className='text-center my-6'>
@@ -15,10 +17,12 @@ const PrivateRoute = ({ children }) => {
         )
     }
 
+    // If user logged in then show all the children components
     if (yokooUser?.email) {
         return children;
     }
 
+    // Redirect to login page
     return <Navigate to="/login" state={{ from: location }
     } replace />;
 };

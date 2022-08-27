@@ -18,16 +18,16 @@ const Footer = () => {
                         <h2 className="title-font font-bold text-white tracking-widest text-lg mb-3">Company</h2>
                         <nav className="list-none mb-10 space-y-2">
                             <li>
-                                <Link to="/about" className="text-white">About</Link>
+                                <Link to="/" className="text-white">About</Link>
                             </li>
                             <li>
-                                <Link to="" className="text-white">Project</Link>
+                                <Link to="/" className="text-white">Project</Link>
                             </li>
                             <li>
-                                <Link to="" className="text-white">Our Team</Link>
+                                <Link to="/" className="text-white">Our Team</Link>
                             </li>
                             <li>
-                                <Link to="" className="text-white">Terms & Conditions</Link>
+                                <Link to="/" className="text-white">Terms & Conditions</Link>
                             </li>
                         </nav>
                     </div>
@@ -52,7 +52,7 @@ const Footer = () => {
                         <div className="flex title-font font-bold items-center md:justify-start justify-center text-white">
                             <span className=" text-lg">About us</span>
                         </div>
-                        <p className="mt-2 text-base text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat
+                        <p className="mt-2 text-base text-white">Our award-winning stores are the heart and soul of our company - a haven for cyclists of all levels and disciplines.
                         </p>
                     </div>
                 </div>

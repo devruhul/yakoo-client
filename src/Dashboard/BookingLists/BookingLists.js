@@ -7,6 +7,7 @@ const BookingLists = () => {
 
     const { data, isLoading, isError, error } = useQuery(["bookingsLists"], async () => await axios.get('http://localhost:5000/allBookings'))
 
+    // if data is loading
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -15,6 +16,7 @@ const BookingLists = () => {
         return <div>Error: {error.message}</div>;
     }
 
+    // get order status
     const getStatus = () => {
         const selectStatus = document.getElementById('status');
         const selectOption = selectStatus.options[selectStatus.selectedIndex];
@@ -23,6 +25,7 @@ const BookingLists = () => {
         setChangeStatus(optionValue);
     }
 
+    // change order status
     const handleChangeStatus = (e, _id) => {
         e.preventDefault();
         const updateStatus = {
@@ -57,10 +60,11 @@ const BookingLists = () => {
     }
 
     return (
+        // Booking Lists page
         <div className=" container px-5 py-4 col-span-full xl:col-span-6  rounded-sm">
             <header>
-                <div className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
-                    <span className='text-purple-color'>Bookings </span>
+                <div className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">All
+                    <span className='text-purple-color'> Orders </span>
                     Lists
                 </div>
             </header>
@@ -106,7 +110,7 @@ const BookingLists = () => {
                                         </td>
                                         <td className="p-2 whitespace-nowrap">
                                             <div className='flex justify-around'>
-                                                <select id='status' value={changeStatus} onChange={getStatus} class="select select-primary w-50 select-sm max-w-xs">
+                                                <select id='status' value={changeStatus} onChange={getStatus} className="select select-primary w-50 select-sm max-w-xs">
                                                     {/* {bookingsList.orderStatus === "Pending" ? <option value={bookingsList.orderStatus}>{bookingsList.orderStatus}</option> : null
                                                     } */}
 
@@ -115,7 +119,7 @@ const BookingLists = () => {
                                                     {bookingsList.orderStatus === "Done" ? <option value={bookingsList.orderStatus}>{bookingsList.orderStatus}</option> : null}
 
 
-                                                    <option disabled selected>Change Booking Status</option>
+                                                    <option disabled defaultValue={bookingsList.orderStatus}>Tried but not working</option>
                                                     <option value={bookingsList.orderStatus}>{bookingsList.orderStatus}</option>
 
                                                     <option value="Ongoing">Ongoing</option>

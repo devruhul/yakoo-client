@@ -8,6 +8,8 @@ import './BookingDetails.css'
 const BookingDetails = () => {
     const { id } = useParams()
     const { yokooUser } = useAuth()
+
+    // Initial booking details
     const initialBookingInfo = {
         yokooUserName: yokooUser?.displayName,
         email: yokooUser?.email,
@@ -16,29 +18,20 @@ const BookingDetails = () => {
 
     const [bookingInfo, setBookingInfo] = useState(initialBookingInfo);
 
-    const handleEnter = (event) => {
-        if (event.key.toLowerCase() === "enter") {
-            const form = event.target.form;
-            const index = [...form].indexOf(event.target);
-            form.elements[index + 1].focus();
-            event.preventDefault();
-        }
-    };
-
     // load sing bicycle by id
     const { isLoading, data, isError, error } = useBicycleData(id)
 
-    // if data is loading
+    // If data is loading
     if (isLoading) {
         return <h2>Loading...</h2>
     }
 
-    // if there is any error
+    // If there is any error
     if (isError) {
         return <h2>{error.message}</h2>
     }
 
-    // handle change of input
+    // Handle change of input
     const handleOnBlur = (e) => {
         const nameInputField = e.target.name
         const valueInputField = e.target.value
@@ -55,7 +48,7 @@ const BookingDetails = () => {
             ...bookingInfo
         })
 
-        // send booking service data to server side
+        // Send booking bicycle data to server side
         axios.post('http://localhost:5000/booking', bookingInfo)
             .then(data => {
                 console.log(data)
@@ -71,6 +64,7 @@ const BookingDetails = () => {
     }
 
     return (
+        // Bicycle booking form
         <form onSubmit={handleBookingDetails} className="flex w-full  space-x-3 mx-auto">
             <div className="w-full  px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
 
@@ -78,7 +72,7 @@ const BookingDetails = () => {
                     Booking The Service<span className='text-purple-color'> {data.data?.bicycleName}</span>
                 </div>
                 <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <input name="userName" type="text" id="contact-form-user-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 required
@@ -89,7 +83,7 @@ const BookingDetails = () => {
                             />
                         </div>
                     </div>
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <input name="userEmail" type="email" id="contact-form-user-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 required
@@ -99,7 +93,7 @@ const BookingDetails = () => {
                             />
                         </div>
                     </div>
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <input name="phoneNumber" type="number" id="contact-form-user-number" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 required
@@ -108,7 +102,7 @@ const BookingDetails = () => {
                             />
                         </div>
                     </div>
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <input name="bicycleTitle" type="text" id="contact-form-name" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 readOnly
@@ -118,7 +112,7 @@ const BookingDetails = () => {
                             />
                         </div>
                     </div>
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2">
                         <div className="currency-wrap relative">
                             <span className="currency-code text-purple-color">$</span>
                             <input name="bicyclePrice" type="number" id="contact-form-email" className=" text-currency flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
@@ -129,7 +123,7 @@ const BookingDetails = () => {
                             />
                         </div>
                     </div>
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2">
                         <div className="relative">
                             <input name="bicycleImg" type="text" id="contact-form-email" className=" flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 readOnly
@@ -139,7 +133,7 @@ const BookingDetails = () => {
                             />
                         </div>
                     </div>
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <input name="addInfo" type="text" id="contact-form-message" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 required
@@ -148,7 +142,7 @@ const BookingDetails = () => {
                             />
                         </div>
                     </div>
-                    <div className="md:col-span-2 lg:col-span-2">
+                    <div className="col-span-2 lg:col-span-2">
                         <div className=" relative ">
                             <textarea name="bicycleDescription" type="text" id="contact-form-email" className="flex-1 appearance-none border border-pink-300 w-full py-2 px-4 bg-white text-purple-color placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                                 readOnly
@@ -159,7 +153,7 @@ const BookingDetails = () => {
                         </div>
                     </div>
                     <div className="col-span-2">
-                        <button onKeyDown={handleEnter} type='submit' className="btn btn-primary">
+                        <button type='submit' className="btn btn-primary">
                             Submit
                         </button>
                     </div>

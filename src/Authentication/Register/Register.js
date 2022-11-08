@@ -95,12 +95,12 @@ const Register = () => {
         </form>
       </div>
       <div className='flex items-center justify-center mt-6'>
-        <Linfk
+        <Link
           to='/login'
           className='inline-flex items-center text-xs font-thin text-center text-purple-color hover:text-purple-color dark:text-gray-100 dark:hover:text-white'
         >
           <span className='ml-2 text-2xl'>Already created an account?</span>
-        </Linfix and fek>
+        </Link>
       </div>
     </div>
   );

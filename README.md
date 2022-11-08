@@ -1,18 +1,18 @@
-# Here is the Jerin's Parlour project
+# Here is the Yokoo Bicycle Shop project
 
 Here is the project live link [Yokoo Bicycle Shop live](https://yokoo-client.vercel.app/).
 
 ## Features
 
-- User can see all the services in the home page.
-- User can book services from this website.
-- Booking service will be added to mongodb database.
+- User can see all the bicycles in the home page.
+- User can bookbicycles from this website.
+- Booking bicycle will be added to mongodb database.
 - User can see all their bookings in dashboard under the bookings icon.
-- User can post and see their reviews in the home page .
+- User can post review and see their reviews in the home page .
 - User can delete their booking
-- Added private route for dashboard and services route.
+- Added private route for dashboard and bicycles route.
 - Added JWT token for authentication.
-- Admin can add new services.
+- Admin can add new bicycles.
 - Admin can see all the bookings in the dashboard.
 - Admin can add new admin.
 - Admin can delete any service.

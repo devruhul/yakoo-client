@@ -1,15 +1,15 @@
-.currency-wrap{
-    position:relative;
+.currency-wrap {
+  position: relative;
 }
 
-.currency-code{
-    position:absolute;
-    left:8px;
-    top:10px;
+.currency-code {
+  position: absolute;
+  left: 8px;
+  top: 10px;
 }
 
-.text-currency{
-    padding:10px 20px;
-    border:solid 1px rgb(109, 10, 221);
-    border-radius:5px;
+.text-currency {
+  padding: 10px 20px;
+  border: solid 1px rgb(109, 10, 221);
+  border-radius: 5px;
 }

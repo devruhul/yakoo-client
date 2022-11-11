@@ -25,100 +25,115 @@ import ContextProvider from "./Context/ContextProvider";
 import MakeAdmin from "./Dashboard/MakeAdmin/MakeAdmin";
 import AdminRoute from "./Authentication/AdminRoute/AdminRoute";
 import BookingLists from "./Dashboard/BookingLists/BookingLists";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const queryClient = new QueryClient();
+  // loading spinner
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   return (
     <div className='App'>
-      <ContextProvider>
-        <QueryClientProvider client={queryClient}>
-          <HomeNav />
-          <Header />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route
-              path='bicycles'
-              element={
-                <PrivateRoute>
-                  <Bicycles />
-                </PrivateRoute>
-              }
-            />
-            <Route path='bookBicycle' element={<BookBicycle />}>
+      {loading ? (
+        <div className='loader-container'>
+          <div className='spinner'></div>
+        </div>
+      ) : (
+        <ContextProvider>
+          <QueryClientProvider client={queryClient}>
+            <HomeNav />
+            <Header />
+            <Routes>
+              <Route path='/' element={<Home />} />
               <Route
-                path=':id'
+                path='bicycles'
                 element={
                   <PrivateRoute>
-                    <BookingDetails />
+                    <Bicycles />
                   </PrivateRoute>
                 }
               />
-            </Route>
-            <Route
-              path='explore'
-              element={
-                <PrivateRoute>
-                  <Explore />
-                </PrivateRoute>
-              }
-            />
-            <Route path='exploreBicycles' element={<BookBicycle />}>
-              <Route path=':id' element={<BookingDetails />} />
-            </Route>
-            <Route
-              path='dashboard'
-              element={
-                <PrivateRoute>
-                  <Dashboard />
-                </PrivateRoute>
-              }
-            >
-              <Route index element={<Payment />} />
-              <Route path='/dashboard/payment' element={<Payment />} />
-              <Route path='/dashboard/myOrders' element={<MyOrders />} />
+              <Route path='bookBicycle' element={<BookBicycle />}>
+                <Route
+                  path=':id'
+                  element={
+                    <PrivateRoute>
+                      <BookingDetails />
+                    </PrivateRoute>
+                  }
+                />
+              </Route>
               <Route
-                path='/dashboard/bicycleReview'
-                element={<BicycleReview />}
-              />
-              <Route
-                path='/dashboard/addBicycle'
+                path='explore'
                 element={
-                  <AdminRoute>
-                    <AddBicycle />
-                  </AdminRoute>
+                  <PrivateRoute>
+                    <Explore />
+                  </PrivateRoute>
                 }
               />
+              <Route path='exploreBicycles' element={<BookBicycle />}>
+                <Route path=':id' element={<BookingDetails />} />
+              </Route>
               <Route
-                path='/dashboard/manageBicycles'
+                path='dashboard'
                 element={
-                  <AdminRoute>
-                    <ManageBicycles />
-                  </AdminRoute>
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
                 }
-              />
-              <Route
-                path='/dashboard/makeAdmin'
-                element={
-                  <AdminRoute>
-                    <MakeAdmin />
-                  </AdminRoute>
-                }
-              />
-              <Route
-                path='/dashboard/bookingsLists'
-                element={<BookingLists />}
-              />
-            </Route>
-            <Route path='reviews' element={<Reviews />} />
-            <Route path='contact' element={<Contact />} />
-            <Route path='login' element={<Login />} />
-            <Route path='register' element={<Register />} />
-            <Route path='/*' element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </QueryClientProvider>
-      </ContextProvider>
+              >
+                <Route index element={<Payment />} />
+                <Route path='/dashboard/payment' element={<Payment />} />
+                <Route path='/dashboard/myOrders' element={<MyOrders />} />
+                <Route
+                  path='/dashboard/bicycleReview'
+                  element={<BicycleReview />}
+                />
+                <Route
+                  path='/dashboard/addBicycle'
+                  element={
+                    <AdminRoute>
+                      <AddBicycle />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path='/dashboard/manageBicycles'
+                  element={
+                    <AdminRoute>
+                      <ManageBicycles />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path='/dashboard/makeAdmin'
+                  element={
+                    <AdminRoute>
+                      <MakeAdmin />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path='/dashboard/bookingsLists'
+                  element={<BookingLists />}
+                />
+              </Route>
+              <Route path='reviews' element={<Reviews />} />
+              <Route path='contact' element={<Contact />} />
+              <Route path='login' element={<Login />} />
+              <Route path='register' element={<Register />} />
+              <Route path='/*' element={<NotFound />} />
+            </Routes>
+            <Footer />
+          </QueryClientProvider>
+        </ContextProvider>
+      )}
     </div>
   );
 }

@@ -46,7 +46,14 @@ function App() {
               }
             />
             <Route path='bookBicycle' element={<BookBicycle />}>
-              <Route path=':id' element={<BookingDetails />} />
+              <Route
+                path=':id'
+                element={
+                  <PrivateRoute>
+                    <BookingDetails />
+                  </PrivateRoute>
+                }
+              />
             </Route>
             <Route
               path='explore'

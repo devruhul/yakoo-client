@@ -3,7 +3,6 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const BookingLists = () => {
-  // const [changeStatus, setChangeStatus] = useState("");
   const [selects, setSelects] = useState("");
   const { data, isLoading, isError, error } = useQuery(
     ["bookingsLists"],
